@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FX</title>
+        <style>
+            div.tooltip {   
+            position: absolute;         
+            text-align: center;         
+            width: 60px;                    
+            height: 28px;                   
+            padding: 2px;               
+            font: 12px sans-serif;      
+            border: 0px;        
+            border-radius: 8px;         
+            pointer-events: none;           
+        }
+
+        </style>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="D3/d3.min.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1>FX 101: A visual tutorial</h1>
+        <div class="row">
+        <div class="col-lg-12"><span>What Is Forex?
+            The foreign exchange market is the "place" where currencies are traded. Currencies are important to most people around the world, whether they realize it or not, because currencies need to be exchanged in order to conduct foreign trade and business. The foreign exchange market (forex or FX for short) is one of the most exciting, fast-paced markets around. Until recently, forex trading in the currency market had been the domain of large financial institutions, corporations, central banks, hedge funds and extremely wealthy individuals. The emergence of the internet has changed all of this, and now it is possible for average investors to buy and sell currencies easily with the click of a mouse through online brokerage accounts.
+        </span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><img src="Leverage-02.jpg" style="width:900px;height:auto;"/></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Trading instruments are represented by currency pairs. Currencies do not have an absolute value. When traded they are considered in pairs based on the domestic currency or the Base currency. This is often the currency of a trader's home country. The currency being bought of sold is called the counter currency.</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><h2>Trade Instruments</h2><br/><img src="Leverage-01.jpg" style="width:900px;height:auto;"/></div>
+          <div class="col-lg-4"><br/><br/><span align="right">A major difference between the forex and equities markets is the number of traded instruments: the forex market has very few compared to the thousands found in the equities market. The majority of forex traders focus their efforts on seven different currency pairs: the four majors, which include (EUR/USD, USD/JPY, GBP/USD, USD/CHF); and the three commodity pairs (USD/CAD, AUD/USD, NZD/USD). All other pairs are just different combinations of the same currencies, otherwise known as cross currencies. This makes currency trading easier to follow because rather than having to cherry-pick between 10,000 stocks to find the best value, all that FX traders need to do is "keep up" on the economic and political news of eight countries.</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><br/><br/><h2>Daily Fluctuations</h2><br/><svg id="page3" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Daily currency fluctuations are usually very small. Most currency pairs move less than one cent per day, representing a less than 1% change in the value of the currency. Traders often make trades within the day betting on these small changes in the value of the currency.</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><img src="Leverage-03.jpg" style="width:900px;height:auto;"/></div>
+          <div class="col-lg-4"><br/><br/><span align="right">When understanding the value of a currency on a particular day there are 5 values the trader has to keep in mind. The Opening value is the value that the market closed the previous day and the value at the beginning of the current trade day. The High and Low values are the extent to which the rate has changed in 24 hours. The current value is represented by the spread which consists of the Ask price and Bid price. These are the prices at which financial institutions buy and sell currencies respectively.</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><img src="Leverage-04.jpg" style="width:900px;height:auto;"/></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><br/><br/><span align="right">Though currencies don't tend to move as sharply as equities on a percentage basis (where a company's stock can lose a large portion of its value in a matter of minutes after a bad announcement), it is the leverage in the spot market that creates the volatility. For example, if you are using 100:1 leverage on $1,000 invested, you control $100,000 in capital. If you put $100,000 into a currency and the currency's price moves 1% against you, the value of the capital will have decreased to $99,000 - a loss of $1,000, or all of your invested capital, representing a 100% loss. In the equities market, most traders do not use leverage, therefore a 1% loss in the stock's value on a $1,000 investment, would only mean a loss of $10. Therefore, it is important to take into account the risks involved in the forex market before diving in.</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8"><br/><br/><h2>Size of Markets</h2><br/><svg id="page5"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">The need to exchange currencies, and the enormous leverage available to traders are the primary reason why the forex market is the largest, most liquid financial market in the world. It dwarfs other markets in size, even the stock market, with an average traded value of around U.S. $4,000 billion per day. (The total volume changes all the time, but as of August 2012, the Bank for International Settlements (BIS) reported that the forex market traded in excess of U.S. $4.9 trillion per day.) </span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><h2>Inflation</h2><br/><svg id="page7" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Changes in market inflation cause changes in currency exchange rates. A country with a lower inflation rate than another's will see an appreciation in the value of its currency. The prices of goods and services increase at a slower rate where the inflation is low. A country with a consistently lower inflation rate exhibits a rising currency value while a country with higher inflation typically sees depreciation in its currency and is usually accompanied by higher interest rates</span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><h2>Interest Rate</h2><br/><svg id="page8" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Changes in interest rate affect currency value and dollar exchange rate. Forex rates, interest rates, and inflation are all correlated. Increases in interest rates cause a country's currency to appreciate because higher interest rates provide higher rates to lenders, thereby attracting more foreign capital, which causes a rise in exchange rates</span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><h2>Balance of Payments</h2><br/><svg id="page9" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">A country’s current account reflects balance of trade and earnings on foreign investment. It consists of total number of transactions including its exports, imports, debt, etc. A deficit in current account due to spending more of its currency on importing products than it is earning through sale of exports causes depreciation. Balance of payments fluctuates exchange rate of its domestic currency.</span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><h2>Government Debt</h2><br/><svg id="page10" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Government debt is public debt or national debt owned by the central government. A country with government debt is less likely to acquire foreign capital, leading to inflation. Foreign investors will sell their bonds in the open market if the market predicts government debt within a certain country. As a result, a decrease in the value of its exchange rate will follow.</span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><h2>Terms of Trade Indicator</h2><br/><svg id="page11" width="900" height="500"></svg></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">Related to current accounts and balance of payments, the terms of trade is the ratio of export prices to import prices. A country's terms of trade improves if its exports prices rise at a greater rate than its imports prices. This results in higher revenue, which causes a higher demand for the country's currency and an increase in its currency's value. This results in an appreciation of exchange rate.</span></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8"><br/><br/><img src="Leverage-05.jpg" style="width:900px;height:auto;"/></div>
+          <div class="col-lg-4"><br/><br/><br/><br/><span align="right">The five basic indicators can be used to speculate the value of a currency. However, there are other factors that are also used to indicate the forward value of a currency. A country's political state and economic performance can affect its currency strength. A country with less risk for political turmoil is more attractive to foreign investors, as a result, drawing investment away from other countries with more political and economic stability. Increase in foreign capital, in turn, leads to an appreciation in the value of its domestic currency. A country with sound financial and trade policy does not give any room for uncertainty in value of its currency. But, a country prone to political confusions may see a depreciation in exchange rates. When a country experiences a recession, its interest rates are likely to fall, decreasing its chances to acquire foreign capital. As a result, its currency weakens in comparison to that of other countries, therefore lowering the exchange rate. If a country's currency value is expected to rise, investors will demand more of that currency in order to make a profit in the near future. As a result, the value of the currency will rise due to the increase in demand. With this increase in currency value comes a rise in the exchange rate as well.</span></div>
+        </div>
+        <script type="text/javascript">
+            d3.tsv("commonrates.tsv", function(d){
+                var base = d.Pair.slice(0,3);
+                var counter = d.Pair.slice(4, 7);
+                return {
+                    Base :base,
+                    Counter :counter,
+                    Bid: +d.Bid,
+                    Ask: +d.Ask,
+                    Open: +d.Open,
+                    High: +d.High,
+                    Low: +d.Low,
+                    Change: +d.Change,
+                    x:+d.X,
+                    y: +d.Y,
+                    Percent: parseFloat(d.Percent.slice(-0, -1))
+                };
+            },function(data){
+                var svg = d3.select("#page1");
+                var margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom;
+                var color = d3.scaleLinear()
+                    .domain([-2,2])
+                    .range(['#FA5858','#9ACD32']);
+                var radius = d3.scaleLinear().domain([0.6,1.2]).range([0, 150]);
+                for(i = 0; i<data.length; i++)
+                {
+                    if (data[i].Base == "EUR")
+                    {
+                        svg.append("circle")
+                            .attr("fill",color(data[i].Percent))
+                            .attr('r', radius(Math.abs(data[i].Bid))+"px")
+                            .attr("cx", width/2-100)
+                            .attr("cy", height/2);
+                    }
+                    else if (data[i].Counter == "EUR")
+                    {
+                        svg.append("circle")
+                            .attr("fill",color(data[i].Percent))
+                            .attr('r', radius(Math.abs(1/data[i].Bid))+"px")
+                            .attr("cx", width/2-100)
+                            .attr("cy", height/2);
+                    }
+                }
+                svg.append("circle")
+                            .attr("fill",color(0))
+                            .attr('r', radius(1)+"px")
+                            .attr("cx", width/2+100)
+                            .attr("cy", height/2);
+            });
+            d3.tsv("EUR.tsv", function(d) {
+                var change = parseFloat(d.Change.slice(-0, -1));
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Price: +d.Price,
+                    Open : +d.Open,
+                    High : +d.High,
+                    Low : +d.Low,
+                    Change : change
+                };
+            }, function(error, data) {
+              if (error) throw error;
+              var svg = d3.select("#page3"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                var x = d3.scaleTime()
+                    .rangeRound([0, width]);
+
+                var y = d3.scaleLinear()
+                    .rangeRound([height, 0]);
+
+                var line = d3.line()
+                    .x(function(d) { return x(d.Date); })
+                    .y(function(d) { return y(d.Price); });
+                    var div = d3.select("body").append("div")   
+                        .attr("class", "tooltip")               
+                        .style("opacity", 0);
+              x.domain(d3.extent(data, function(d) { return d.Date; }));
+              y.domain(d3.extent(data, function(d) { return d.Price; }));
+
+              g.append("g")
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(d3.axisBottom(x))
+                .select(".domain")
+                  .remove();
+
+              g.append("g")
+                  .call(d3.axisLeft(y))
+                .append("text")
+                  .attr("fill", "#000")
+                  .attr("transform", "rotate(-90)")
+                  .attr("y", 6)
+                  .attr("dy", "0.71em")
+                  .attr("text-anchor", "end")
+                  .text("Price ($)");
+
+              g.append("path")
+                  .datum(data)
+                  .attr("fill", "none")
+                  .attr("stroke", "#333333")
+                  .attr("stroke-linejoin", "round")
+                  .attr("stroke-linecap", "round")
+                  .attr("stroke-width", 1.5)
+                  .attr("d", line);
+              g.append("g").selectAll("rect").data(data).enter().append("rect")
+                  .attr("x", function(d){return x(d.Date)+"px";})
+                  .attr("y", function(d){return y(d.High)+"px";})
+                  .attr("width", 1+"px")
+                  .attr("height", function(d){return y(d.Low)-y(d.High)+"px";})
+                  .attr("stroke", "#FA5858")
+                  .attr("fill", "#FA5858")
+                  .on("mouseover", function(d) {      
+                        div.transition()        
+                            .duration(2)      
+                            .style("opacity", .9);      
+                        div.html("High:"+d.High+ "<br/>Low: "+ d.Low)  
+                            .style("left", (d3.event.pageX) + "px")     
+                            .style("top", (d3.event.pageY - 28) + "px");    
+                        })                  
+                    .on("mouseout", function(d) {       
+                        div.transition()        
+                            .duration(500)      
+                            .style("opacity", 0);   
+                        });
+            });
+            d3.tsv("stocks.tsv", function(d){
+            return{
+                Exchange: d.Exchange,
+                value: +d["Daily Average"],
+                parent: "root"
+            };
+        }, function(data){
+            var width = 900;
+            var height = 900;
+            var margin = 1;
+            var svg = d3.select("#page5");
+            svg.attr('width', width).attr('height', height);
+            var scale = d3.scaleLinear().domain([0, 4900000000000]).range([0, 860]);
+            var treemap = d3.treemap().size([scale(621144000000), scale(621144000000)]);
+            data.push({Exchange: "root", parent: "", value:0});
+            var root = d3.stratify()
+                .id(function(d) { return d.Exchange; })
+                .parentId(function(d) { return d.parent; })
+                (data);
+
+            var nodes = treemap(root
+                    .sum(function(d) { return d.value; })
+                    .sort(function(a, b) { return b.height - a.height || b.value - a.value; }))
+                    .descendants();
+            var div = d3.select("body").append("div")   
+                .attr("class", "tooltip")               
+                .style("opacity", 0);
+            svg.selectAll('rect').data(nodes).enter()
+                .append('rect')
+                .attr('x', function(d){return d.x0+ margin+"px";})
+                .attr('y',function(d){return d.y0+ margin + "px";})
+                .attr('width', function(d) { return d.x1 - d.x0 - 2*margin+"px"})
+                .attr('height', function(d) { return d.y1 - d.y0-2*margin +"px" } )
+                .attr('fill', "#5b4872")
+                .style('opacity', 0.5)
+                .on("mouseover", function(d) {      
+                    div.transition()        
+                        .duration(200)      
+                        .style("opacity", .9);      
+                    div .html((d.id==="root"?"Total":d.id) + "<br/>"  + d.value)  
+                        .style("left", (d3.event.pageX) + "px")     
+                        .style("top", (d3.event.pageY - 28) + "px");    
+                    })                  
+                .on("mouseout", function(d) {       
+                    div.transition()        
+                        .duration(500)      
+                        .style("opacity", 0);   
+                    });
+            svg.append('rect')
+                .attr('x', width/8+"px")
+                .attr('y', margin+"px")
+                .attr('width', scale(4900000000000))
+                .attr('height', scale(4900000000000))
+                .attr('fill', "#333333")
+                .style('opacity', 0.6);
+            svg.append("text")
+                    .attr('x', width/8+20+"px")
+                .attr('y', 20+"px")
+                  .text("FX Market 4900000000000");
+            svg.append("text")
+                    .attr('x', 10+"px")
+                .attr('y', 130+"px")
+                  .text("60 Major stock");
+            svg.append("text")
+                    .attr('x', 15+"px")
+                .attr('y', 150+"px")
+                  .text("exchanges");
+        });
+            d3.tsv("uscpi.tsv", function(d) {
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Rate : +d.Rate
+                };
+            }, function(error, data) {
+              if(error) throw error;
+              var svg = d3.select("#page7"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+              var x = d3.scaleTime()
+                  .rangeRound([0, width-30]);
+
+              var y = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+              var c = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+
+              var line = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return y(d.Rate); });
+              var line2 = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return c(d.Change); });
+              d3.tsv("eur07-10.tsv", function(d){
+                var date = new Date(d.Date);
+                return {
+                  Date : date,
+                  Change : +1/d.Price
+                };
+              }, function(error, data2){
+                if (error) throw error;
+                x.domain(d3.extent(data, function(d) { return d.Date; }));
+                y.domain(d3.extent(data, function(d) { return d.Rate; }));
+                c.domain(d3.extent(data2, function(d){return d.Change;}));
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                  .select(".domain")
+                    .remove();
+
+                g.append("g")
+                .attr("stroke", "#4fa3c9")
+                    .attr("fill", "#4fa3c9")
+                    .call(d3.axisLeft(y))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("CPI");
+                g.append("g")
+                    .attr("transform", "translate("+(width-10)+",0)")
+                    .call(d3.axisRight(c))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("FX");
+
+                g.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line);
+                g.append("path")
+                    .datum(data2)
+                    .attr("fill","none")
+                    .attr("stroke", "#333333")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line2);
+              });
+              
+            });
+            d3.tsv("usint.tsv", function(d) {
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Rate : +d.Rate
+                };
+            }, function(error, data) {
+              if(error) throw error;
+              var svg = d3.select("#page8"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+              var x = d3.scaleTime()
+                  .rangeRound([0, width-30]);
+
+              var y = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+              var c = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+
+              var line = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return y(d.Rate); });
+              var line2 = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return c(d.Change); });
+              d3.tsv("eur07-10.tsv", function(d){
+                var date = new Date(d.Date);
+                return {
+                  Date : date,
+                  Change : +1/d.Price
+                };
+              }, function(error, data2){
+                if (error) throw error;
+                x.domain(d3.extent(data, function(d) { return d.Date; }));
+                y.domain(d3.extent(data, function(d) { return d.Rate; }));
+                c.domain(d3.extent(data2, function(d){return d.Change;}));
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                  .select(".domain")
+                    .remove();
+
+                g.append("g")
+                .attr("stroke", "#4fa3c9")
+                    .attr("fill", "#4fa3c9")
+                    .call(d3.axisLeft(y))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("Interest Rate");
+                g.append("g")
+                    .attr("transform", "translate("+(width-10)+",0)")
+                    .call(d3.axisRight(c))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("FX");
+
+                g.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line);
+                g.append("path")
+                    .datum(data2)
+                    .attr("fill","none")
+                    .attr("stroke", "#333333")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line2);
+              });
+              
+            });
+            d3.tsv("usbop.tsv", function(d) {
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Rate : +d.Rate
+                };
+            }, function(error, data) {
+              if(error) throw error;
+              var svg = d3.select("#page9"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+              var x = d3.scaleTime()
+                  .rangeRound([0, width-30]);
+
+              var y = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+              var c = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+
+              var line = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return y(d.Rate); });
+              var line2 = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return c(d.Change); });
+              d3.tsv("eur07-10.tsv", function(d){
+                var date = new Date(d.Date);
+                return {
+                  Date : date,
+                  Change : +1/d.Price
+                };
+              }, function(error, data2){
+                if (error) throw error;
+                x.domain(d3.extent(data, function(d) { return d.Date; }));
+                y.domain(d3.extent(data, function(d) { return d.Rate; }));
+                c.domain(d3.extent(data2, function(d){return d.Change;}));
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                  .select(".domain")
+                    .remove();
+
+                g.append("g")
+                .attr("stroke", "#4fa3c9")
+                    .attr("fill", "#4fa3c9")
+                    .call(d3.axisLeft(y))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("BOP");
+                g.append("g")
+                    .attr("transform", "translate("+(width-10)+",0)")
+                    .call(d3.axisRight(c))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("FX");
+
+                g.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line);
+                g.append("path")
+                    .datum(data2)
+                    .attr("fill","none")
+                    .attr("stroke", "#333333")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line2);
+              });
+              
+            });
+            d3.tsv("usdebt.tsv", function(d) {
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Rate : +d.Rate
+                };
+            }, function(error, data) {
+              if(error) throw error;
+              var svg = d3.select("#page10"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+              var x = d3.scaleTime()
+                  .rangeRound([0, width-30]);
+
+              var y = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+              var c = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+
+              var line = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return y(d.Rate); });
+              var line2 = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return c(d.Change); });
+              d3.tsv("eur07-10.tsv", function(d){
+                var date = new Date(d.Date);
+                return {
+                  Date : date,
+                  Change : +1/d.Price
+                };
+              }, function(error, data2){
+                if (error) throw error;
+                x.domain(d3.extent(data, function(d) { return d.Date; }));
+                y.domain(d3.extent(data, function(d) { return d.Rate; }));
+                c.domain(d3.extent(data2, function(d){return d.Change;}));
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                  .select(".domain")
+                    .remove();
+
+                g.append("g")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("fill", "#4fa3c9")
+                    .call(d3.axisLeft(y))
+                  .append("text")
+                    .attr("fill", "#4fa3c9")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("Govt Debt");
+                g.append("g")
+                    .attr("transform", "translate("+(width-10)+",0)")
+                    .call(d3.axisRight(c))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("FX");
+
+                g.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line);
+                g.append("path")
+                    .datum(data2)
+                    .attr("fill","none")
+                    .attr("stroke", "#333333")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line2);
+              });
+              
+            });
+            d3.tsv("ustot.tsv", function(d) {
+                var date = new Date(d.Date);
+                return {
+                    Date : date,
+                    Rate : +d.Rate
+                };
+            }, function(error, data) {
+              if(error) throw error;
+              var svg = d3.select("#page11"),
+                margin = {top: 20, right: 20, bottom: 40, left: 50},
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+              var x = d3.scaleTime()
+                  .rangeRound([0, width-30]);
+
+              var y = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+              var c = d3.scaleLinear()
+                  .rangeRound([height, 0]);
+
+              var line = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return y(d.Rate); });
+              var line2 = d3.line()
+                  .x(function(d) { return x(d.Date); })
+                  .y(function(d) { return c(d.Change); });
+              d3.tsv("eur07-10.tsv", function(d){
+                var date = new Date(d.Date);
+                return {
+                  Date : date,
+                  Change : +1/d.Price
+                };
+              }, function(error, data2){
+                if (error) throw error;
+                x.domain(d3.extent(data, function(d) { return d.Date; }));
+                y.domain(d3.extent(data, function(d) { return d.Rate; }));
+                c.domain(d3.extent(data2, function(d){return d.Change;}));
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                  .select(".domain")
+                    .remove();
+
+                g.append("g")
+                .attr("stroke", "#4fa3c9")
+                    .attr("fill", "#4fa3c9")
+                    .call(d3.axisLeft(y))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("TOT");
+                g.append("g")
+                    .attr("transform", "translate("+(width-10)+",0)")
+                    .call(d3.axisRight(c))
+                  .append("text")
+                    .attr("fill", "#000")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", "0.71em")
+                    .attr("text-anchor", "end")
+                    .text("FX");
+
+                g.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#4fa3c9")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line);
+                g.append("path")
+                    .datum(data2)
+                    .attr("fill","none")
+                    .attr("stroke", "#333333")
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line2);
+              });
+              
+            });
+        </script>
+    </body>
+</html>
